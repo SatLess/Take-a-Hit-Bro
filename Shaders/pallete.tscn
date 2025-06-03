@@ -1,0 +1,18 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ghv0dx5hlut"]
+
+[ext_resource type="Shader" uid="uid://dt3tseqwsoqa4" path="res://Shaders/PalleteSwap.gdshader" id="1_gym1q"]
+[ext_resource type="Texture2D" uid="uid://rak24nty88s5" path="res://Palletes/default.png" id="2_lbgts"]
+[ext_resource type="Texture2D" uid="uid://be4cl8jqsdvx8" path="res://Npcs.png" id="3_lbgts"]
+[ext_resource type="Texture2D" uid="uid://cou06wkk4685" path="res://Palletes/high.png" id="3_sikua"]
+[ext_resource type="Texture2D" uid="uid://dq2pe5oh77sy2" path="res://Palletes/final.png" id="4_fgasg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbgts"]
+shader = ExtResource("1_gym1q")
+shader_parameter/pallete = Array[Texture2D]([ExtResource("2_lbgts"), ExtResource("3_sikua"), ExtResource("4_fgasg")])
+shader_parameter/swapper = 0.0
+shader_parameter/idx = 0
+
+[node name="Pallete" type="Sprite2D"]
+material = SubResource("ShaderMaterial_lbgts")
+position = Vector2(429, 232)
+texture = ExtResource("3_lbgts")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://chkgthnvou53x"]
+
+[ext_resource type="Script" uid="uid://kbt2m22rdhwx" path="res://Dialogue/text_component.gd" id="1_0hmlv"]
+
+[node name="TextComponent" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "aaaaaaaaaa"
+script = ExtResource("1_0hmlv")
+
+[node name="DialogueBox" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="CharTimer" type="Timer" parent="."]
+one_shot = true

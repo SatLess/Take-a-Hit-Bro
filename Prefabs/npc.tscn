@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bobodwou7105d"]
+
+[ext_resource type="Script" uid="uid://dwbbtn2mjclu5" path="res://Dialogue/DialogueLine.gd" id="1_c0dvn"]
+[ext_resource type="PackedScene" uid="uid://b0kxhitmu1sji" path="res://Interactable/interactable.tscn" id="1_kd6ta"]
+[ext_resource type="Script" uid="uid://75bkswly6yh2" path="res://Dialogue/DialogueResource.gd" id="2_gx746"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c0dvn"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Npcs.png-6e90f1b7710422cb00d13a71f67bb5d8.ctex"
+
+[sub_resource type="GDScript" id="GDScript_kd6ta"]
+resource_name = "NpcBase"
+script/source = "extends Sprite2D
+
+@onready var interactable: Interactable = $interactable
+@export var res: DialogueResource
+
+func _ready() -> void:
+	
+	interactable.interact = func (): DialogueLayer.start_dialogue(res)
+"
+
+[sub_resource type="Resource" id="Resource_wvgss"]
+resource_local_to_scene = true
+script = ExtResource("2_gx746")
+line_list = Array[ExtResource("1_c0dvn")]([])
+metadata/_custom_type_script = "uid://75bkswly6yh2"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd6ta"]
+resource_local_to_scene = true
+size = Vector2(16, 19)
+
+[node name="NPC" type="Sprite2D"]
+y_sort_enabled = true
+texture = SubResource("CompressedTexture2D_c0dvn")
+hframes = 5
+script = SubResource("GDScript_kd6ta")
+res = SubResource("Resource_wvgss")
+metadata/_edit_group_ = true
+
+[node name="interactable" parent="." instance=ExtResource("1_kd6ta")]
+
+[node name="CollisionShape2D" parent="interactable" index="0"]
+shape = SubResource("RectangleShape2D_kd6ta")
+
+[editable path="interactable"]

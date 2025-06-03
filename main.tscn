@@ -1,0 +1,172 @@
+[gd_scene load_steps=24 format=4 uid="uid://b25ri3vew50us"]
+
+[ext_resource type="Script" uid="uid://itxwsrrl6f3l" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dqeue3uhh51gg" path="res://Autoloads/sfx.gd" id="1_4c57u"]
+[ext_resource type="Texture2D" uid="uid://c2sk6aw2joiji" path="res://player.png" id="1_ig7tw"]
+[ext_resource type="TileSet" uid="uid://b5s6tpk3r6w7p" path="res://tile.tres" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://dhgiu6s6rdh2h" path="res://music_manager.gd" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://diiut2624rckm" path="res://Gaym.ogg" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bobodwou7105d" path="res://Prefabs/npc.tscn" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://be4cl8jqsdvx8" path="res://Npcs.png" id="7_efxa6"]
+[ext_resource type="Script" uid="uid://dwbbtn2mjclu5" path="res://Dialogue/DialogueLine.gd" id="8_efxa6"]
+[ext_resource type="Script" uid="uid://75bkswly6yh2" path="res://Dialogue/DialogueResource.gd" id="9_dg77c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xm2m"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig7tw"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2yge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xm2m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig7tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2yge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvp3")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig7tw"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="Resource" id="Resource_ycdy4"]
+script = ExtResource("8_efxa6")
+line = "Hey mister, are you okay?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_w48qg"]
+script = ExtResource("9_dg77c")
+line_list = Array[ExtResource("8_efxa6")]([SubResource("Resource_ycdy4")])
+metadata/_custom_type_script = "uid://75bkswly6yh2"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg77c"]
+resource_local_to_scene = true
+size = Vector2(16, 19)
+
+[sub_resource type="Resource" id="Resource_efxa6"]
+resource_local_to_scene = true
+script = ExtResource("9_dg77c")
+line_list = Array[ExtResource("8_efxa6")]([])
+metadata/_custom_type_script = "uid://75bkswly6yh2"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dg77c"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Npcs.png-6e90f1b7710422cb00d13a71f67bb5d8.ctex"
+
+[sub_resource type="Resource" id="Resource_4c57u"]
+script = ExtResource("8_efxa6")
+line = "You do'nt look too good..."
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_kek77"]
+script = ExtResource("9_dg77c")
+line_list = Array[ExtResource("8_efxa6")]([SubResource("Resource_ycdy4"), SubResource("Resource_4c57u")])
+metadata/_custom_type_script = "uid://75bkswly6yh2"
+
+[node name="Main" type="Node2D"]
+
+[node name="SFX" type="Node2D" parent="."]
+script = ExtResource("1_4c57u")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="SFX"]
+
+[node name="Music Manager" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_h2yge")
+music = ExtResource("4_1bvp3")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAIAAAAAAAAAAQABAAIAAAABAAAAAQABAAIAAAACAAAAAQABAAIAAAD+/wEAAQAAAAMAAAD//wEAAQABAAMAAAAAAAEAAQABAAMAAAABAAEAAQABAAMAAAACAAEAAQABAAMAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAQAAAAAAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAADAAAAAQABAAIAAAADAAEAAQABAAMAAAAEAAEAAQABAAMAAAAFAAEAAQABAAMAAAAGAAEAAQABAAMAAAAHAAEAAQABAAMAAAAIAAEAAQABAAMAAAAJAAEAAQABAAMAAAAKAAEAAQABAAMAAAAKAAAAAQABAAIAAAAJAAAAAQABAAIAAAAIAAAAAQABAAIAAAAHAAAAAQABAAIAAAAGAAAAAQABAAIAAAAFAAAAAQABAAIAAAAEAAAAAQABAAIAAAALAAAAAQABAAIAAAAMAAAAAQABAAIAAAANAAAAAQABAAIAAAAOAAAAAQABAAIAAAAPAAAAAQABAAIAAAAQAAAAAQABAAIAAAARAAAAAQABAAIAAAASAAAAAQABAAIAAAATAAAAAQABAAIAAAAUAAAAAQABAAIAAAAUAAEAAQABAAMAAAATAAEAAQABAAMAAAASAAEAAQABAAMAAAARAAEAAQABAAMAAAAQAAEAAQABAAMAAAAPAAEAAQABAAMAAAAOAAEAAQABAAMAAAANAAEAAQABAAMAAAAMAAEAAQABAAMAAAALAAEAAQABAAMAAAAVAAAAAQABAAIAAAAVAAEAAQABAAMAAAAWAAEAAQABAAMAAAAXAAEAAQABAAMAAAAYAAEAAQABAAMAAAAZAAEAAQABAAMAAAAaAAEAAQABAAMAAAAbAAEAAQABAAMAAAAcAAEAAQABAAMAAAAdAAEAAQABAAMAAAAeAAEAAQABAAMAAAAfAAEAAQABAAMAAAAgAAEAAQABAAIAAFAhAAEAAQABAAIAAFAiAAEAAQABAAIAAFAjAAEAAQABAAMAAAAjAAAAAQABAAIAAAAiAAAAAQABAAIAAFAhAAAAAQABAAIAAFAgAAAAAQABAAIAAFAfAAAAAQABAAIAAAAeAAAAAQABAAIAAAAdAAAAAQABAAIAAAAcAAAAAQABAAIAAAAbAAAAAQABAAIAAAAaAAAAAQABAAIAAAAZAAAAAQABAAIAAAAYAAAAAQABAAIAAAAXAAAAAQABAAIAAAAWAAAAAQABAAIAAAAkAAAAAQABAAIAAAAlAAAAAQABAAIAAAAmAAAAAQABAAIAAAAnAAAAAQABAAIAAAAnAAEAAQABAAMAAAAmAAEAAQABAAMAAAAlAAEAAQABAAMAAAAkAAEAAQABAAMAAAAhAP//AQABAAIAAFAiAP//AQABAAIAAFAhAAIAAQABAAIAAFAiAAIAAQABAAIAAFAhAAMAAQABAAIAAFAiAAMAAQABAAIAAFAhAAUAAQABAAIAAFAiAAUAAQABAAIAAFAhAAQAAQABAAIAAFAiAAQAAQABAAIAAFAhAP7/AQABAAIAAFAiAP7/AQABAAIAAFAhAP3/AQABAAIAAFAiAP3/AQABAAIAAFAhAPz/AQABAAIAAFAiAPz/AQABAAIAAFAhAPv/AQABAAIAAFAiAPv/AQABAAIAAFAhAAYAAQABAAIAAFAiAAYAAQABAAIAAFAhAPr/AQABAAIAAFAiAPr/AQABAAIAAFA=")
+tile_set = ExtResource("1_lquwl")
+
+[node name="Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP//AQABAAEAAAABAP//AQABAAEAAAACAP//AQABAAEAAAADAP//AQABAAEAAAAEAP//AQABAAEAAAAFAP//AQABAAEAAAAGAP//AQABAAEAAAAHAP//AQABAAEAAAAIAP//AQABAAEAAAAJAP//AQABAAEAAAAKAP//AQABAAEAAAALAP//AQABAAEAAAAMAP//AQABAAEAAAANAP//AQABAAEAAAAOAP//AQABAAEAAAAPAP//AQABAAEAAAAQAP//AQABAAEAAAARAP//AQABAAEAAAASAP//AQABAAEAAAATAP//AQABAAEAAAAUAP//AQABAAEAAAAVAP//AQABAAEAAAAVAP7/AQACAAEAAAAVAP3/AQABAAEAAAAUAP3/AQABAAEAAAAUAP7/AQABAAEAAAATAP7/AQABAAEAAAASAP7/AQABAAEAAAARAP7/AQABAAEAAAAQAP7/AQABAAEAAAAPAP7/AQABAAEAAAAOAP7/AQABAAEAAAANAP7/AQABAAEAAAAMAP7/AQABAAEAAAALAP7/AQABAAEAAAAKAP7/AQABAAEAAAAJAP7/AQABAAEAAAAIAP7/AQABAAEAAAAHAP7/AQABAAEAAAAGAP7/AQABAAEAAAAFAP7/AQABAAEAAAAEAP7/AQABAAEAAAADAP7/AQABAAEAAAACAP7/AQABAAEAAAAAAP7/AQABAAEAAAABAP7/AQABAAEAAAADAP3/AQABAAEAAAACAP3/AQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAAEAP3/AQABAAEAAAAFAP3/AQABAAEAAAAGAP3/AQABAAEAAAAHAP3/AQABAAEAAAAIAP3/AQABAAEAAAAJAP3/AQABAAEAAAAKAP3/AQABAAEAAAALAP3/AQABAAEAAAAMAP3/AQABAAEAAAANAP3/AQABAAEAAAAOAP3/AQABAAEAAAAPAP3/AQABAAEAAAAQAP3/AQABAAEAAAARAP3/AQABAAEAAAASAP3/AQABAAEAAAATAP3/AQABAAEAAAD///3/AQABAAAAAAD+//7/AQABAAAAAAD///7/AQABAAEAAAD/////AQABAAEAAAD+////AQABAAEAAAD//wAAAQACAAAAAAD+/wEAAQACAAAAAAD+/wAAAQABAAEAAAAWAP3/AQACAAEAAAAXAP3/AQACAAEAAAAYAP3/AQACAAEAAAAZAP3/AQACAAEAAAAaAP3/AQACAAEAAAAbAP3/AQACAAEAAAAcAP3/AQACAAEAAAAdAP3/AQACAAEAAAAeAP3/AQACAAEAAAAfAP3/AQACAAEAAAAgAP3/AQACAAEAAAAhAP3/AQACAAEAAAAiAP3/AQACAAEAAAAjAP3/AQACAAEAAAAkAP3/AQACAAEAAAAlAP3/AQACAAEAAAAmAP3/AQACAAEAAAAmAP7/AQACAAEAAAAnAP7/AQACAAEAAAAnAP//AQACAAEAAAAnAP3/AQACAAEAAAAmAP//AQACAAEAAAAlAP//AQACAAEAAAAkAP//AQACAAEAAAAjAP//AQACAAEAAAAiAP//AQACAAEAAAAhAP//AQACAAEAAAAgAP//AQACAAEAAAAfAP//AQACAAEAAAAeAP//AQACAAEAAAAdAP//AQACAAEAAAAcAP//AQACAAEAAAAbAP//AQACAAEAAAAaAP//AQACAAEAAAAZAP//AQACAAEAAAAYAP//AQACAAEAAAAXAP//AQACAAEAAAAWAP//AQACAAEAAAAYAP7/AQACAAEAAAAZAP7/AQACAAEAAAAaAP7/AQACAAEAAAAbAP7/AQACAAEAAAAcAP7/AQACAAEAAAAdAP7/AQACAAEAAAAeAP7/AQACAAEAAAAfAP7/AQACAAEAAAAgAP7/AQACAAEAAAAhAP7/AQACAAEAAAAiAP7/AQACAAEAAAAXAP7/AQACAAEAAAAWAP7/AQACAAEAAAAjAP7/AQACAAEAAAAkAP7/AQACAAEAAAAlAP7/AQACAAEAAAA=")
+tile_set = ExtResource("1_lquwl")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(52, 16)
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_0xm2m")
+speed = 120.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_h2yge")
+animation = &"walking"
+frame_progress = 0.9004065
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_ig7tw")
+debug_color = Color(0.96857667, 0.5563933, 0, 0.42000002)
+
+[node name="Interactable" type="RayCast2D" parent="Player"]
+target_position = Vector2(30, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cam2D" type="Camera2D" parent="Player"]
+
+[node name="Friend" parent="." instance=ExtResource("6_kek77")]
+position = Vector2(8, 3)
+texture = ExtResource("7_efxa6")
+frame = 3
+res = SubResource("Resource_w48qg")
+
+[node name="interactable" parent="Friend" index="0"]
+position = Vector2(0, 20)
+
+[node name="CollisionShape2D" parent="Friend/interactable" index="0"]
+shape = SubResource("RectangleShape2D_dg77c")
+
+[node name="Friend3" parent="." instance=ExtResource("6_kek77")]
+position = Vector2(382, -18)
+texture = ExtResource("7_efxa6")
+frame = 1
+res = SubResource("Resource_efxa6")
+
+[node name="interactable" parent="Friend3" index="0"]
+position = Vector2(0, 20)
+
+[node name="CollisionShape2D" parent="Friend3/interactable" index="0"]
+shape = SubResource("RectangleShape2D_dg77c")
+
+[node name="Friend2" parent="." instance=ExtResource("6_kek77")]
+position = Vector2(1480, 23)
+texture = SubResource("CompressedTexture2D_dg77c")
+hframes = 4
+res = SubResource("Resource_kek77")
+
+[editable path="Friend"]
+[editable path="Friend/interactable"]
+[editable path="Friend3"]
+[editable path="Friend3/interactable"]

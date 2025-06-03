@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://7i8g7tagwdyj"]
+
+[ext_resource type="Script" uid="uid://cyri5y3uydsrv" path="res://Dialogue/dialogue_box.gd" id="1_n23yb"]
+[ext_resource type="PackedScene" uid="uid://chkgthnvou53x" path="res://Dialogue/text_component.tscn" id="1_senjy"]
+[ext_resource type="Texture2D" uid="uid://2jj2a6c7iqk4" path="res://Dialogue/dialogueText.png" id="1_t2alc"]
+[ext_resource type="Script" uid="uid://dwbbtn2mjclu5" path="res://Dialogue/DialogueLine.gd" id="2_0nste"]
+[ext_resource type="Script" uid="uid://75bkswly6yh2" path="res://Dialogue/DialogueResource.gd" id="3_if77y"]
+
+[sub_resource type="Resource" id="Resource_if77y"]
+script = ExtResource("2_0nste")
+line = "HI, IM NOT LACEY HELP"
+metadata/_custom_type_script = "uid://d3nuk3v1emn0s"
+
+[sub_resource type="Resource" id="Resource_85jfh"]
+script = ExtResource("2_0nste")
+line = "HI, pqpqpqpqpqpqpqppq"
+metadata/_custom_type_script = "uid://d3nuk3v1emn0s"
+
+[sub_resource type="Resource" id="Resource_med3p"]
+script = ExtResource("2_0nste")
+line = "AAAAAAAAAAAAAAAAAAA"
+metadata/_custom_type_script = "uid://d3nuk3v1emn0s"
+
+[sub_resource type="Resource" id="Resource_f71wr"]
+script = ExtResource("2_0nste")
+line = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+metadata/_custom_type_script = "uid://d3nuk3v1emn0s"
+
+[sub_resource type="Resource" id="Resource_351bv"]
+script = ExtResource("3_if77y")
+line_list = Array[ExtResource("2_0nste")]([SubResource("Resource_if77y"), SubResource("Resource_85jfh"), SubResource("Resource_med3p"), SubResource("Resource_f71wr")])
+metadata/_custom_type_script = "uid://b038fhfwts25i"
+
+[node name="DialogueBox" type="NinePatchRect"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_t2alc")
+script = ExtResource("1_n23yb")
+res = SubResource("Resource_351bv")
+
+[node name="TextComponent" parent="." instance=ExtResource("1_senjy")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0399306
+anchor_top = 0.0992908
+anchor_right = 0.953125
+anchor_bottom = 0.87234
+grow_horizontal = 1
+grow_vertical = 1
+text = "aaaaaaaaaaa"
+fit_content = true
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2vl5nsthwsnr"]
+
+[ext_resource type="PackedScene" uid="uid://7i8g7tagwdyj" path="res://Dialogue/dialogue_box.tscn" id="1_aqud3"]
+
+[sub_resource type="GDScript" id="GDScript_v2lfg"]
+script/source = "extends CanvasLayer
+
+func start_dialogue(res: DialogueResource):
+	$DialogueBox.dialogue_start(res)
+"
+
+[node name="DialogueLayer" type="CanvasLayer"]
+script = SubResource("GDScript_v2lfg")
+
+[node name="DialogueBox" parent="." instance=ExtResource("1_aqud3")]
