@@ -18,6 +18,10 @@ func _process(delta: float) -> void:
 		sprite.flip_h = true if velocity.x < 0 else false
 		sprite.play("walking")
 	else: sprite.play("idle")
+	if not interactCast.is_colliding(): 
+		modulate = Color.WHITE
+		return
+	modulate = Color.PURPLE
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -29,6 +33,9 @@ func _move():
 	velocity = direction * speed if direction  else Vector2.ZERO
 
 func _handle_raycast():
-	if not interactCast.is_colliding(): return
+	if not interactCast.is_colliding(): 
+		modulate = Color.WHITE
+		return
+	modulate = Color.PURPLE
 	var collider : Interactable = interactCast.get_collider()
 	collider.interact.call()

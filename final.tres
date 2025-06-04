@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=9 format=3 uid="uid://cf2b41vadkdiu"]
+
+[ext_resource type="Script" uid="uid://dwbbtn2mjclu5" path="res://Dialogue/DialogueLine.gd" id="1_h4p4c"]
+[ext_resource type="Script" uid="uid://75bkswly6yh2" path="res://Dialogue/DialogueResource.gd" id="2_vah1g"]
+
+[sub_resource type="Resource" id="Resource_dg77c"]
+script = ExtResource("1_h4p4c")
+line = "Do you ever feel like force yourself to be someone youre not? ?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_vivmo"]
+script = ExtResource("1_h4p4c")
+line = "How will you know the true you if you dont push urself out there right?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_215e1"]
+script = ExtResource("1_h4p4c")
+line = "Then why I feel I wasn't made, supposed to be here?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_7sc4i"]
+script = ExtResource("1_h4p4c")
+line = "Like a byproduct of not having enough produce"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_80cx4"]
+script = ExtResource("1_h4p4c")
+line = "..."
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_e8heu"]
+script = ExtResource("1_h4p4c")
+line = "Theres nothing else for you either, just enjoy you high while you can engange in it"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_vah1g")
+line_list = Array[ExtResource("1_h4p4c")]([SubResource("Resource_dg77c"), SubResource("Resource_vivmo"), SubResource("Resource_215e1"), SubResource("Resource_7sc4i"), SubResource("Resource_80cx4"), SubResource("Resource_e8heu")])
+metadata/_custom_type_script = "uid://75bkswly6yh2"

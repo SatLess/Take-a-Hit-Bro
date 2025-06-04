@@ -30,4 +30,6 @@ func _process(delta: float) -> void:
 		flag = 3
 	
 	if play_pos >= 8 and flag == 3:
+
 		EventBus.flag_changed.emit(flag)
+		flag = -1
