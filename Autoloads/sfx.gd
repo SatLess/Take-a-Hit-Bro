@@ -41,7 +41,7 @@ func flag_changed(flag: int):
 			timer.start()
 
 func timeout():
-	var rng = randi_range(0,3)
+	var rng = randi_range(0,6)
 	if rng == 0:
 			if $"../Player".can_move == false: 
 				timeout()
@@ -57,6 +57,21 @@ func timeout():
 			tween_2.tween_property(cam,"zoom", Vector2.ONE,.43)
 			await  tween_2.finished
 			is_tweening = false
+	elif rng == 4:
+			if $"../Player".can_move == false: 
+				timeout()
+				return
+			if is_tweening: return
+			is_tweening = true
+			var tween := create_tween()
+			var cam: Camera2D = get_viewport().get_camera_2d()
+			tween = create_tween()
+			tween.tween_property(cam,"zoom", Vector2(1.5,1.5),.43).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+			await  tween.finished
+			var tween_2 = create_tween()
+			tween_2.tween_property(cam,"zoom", Vector2.ONE,.43).set_trans(Tween.TRANS_ELASTIC)
+			await  tween_2.finished
+			is_tweening = false
 	elif rng == 1:
 		if is_tweening: return
 		is_tweening = true
@@ -65,7 +80,7 @@ func timeout():
 		await  a.finished
 		canvas_modulate.color = Color.WHITE
 		is_tweening = false
-	elif  rng == 3:
+	elif  rng == 6:
 		if $"../Player".can_move == false: 
 			timeout()
 			return
@@ -81,3 +96,5 @@ func timeout():
 		tween_2.tween_property(cam,"rotation_degrees", 0,1.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 		await  tween_2.finished
 		is_tweening = false
+	elif  rng == 5:
+		$AudioStreamPlayer.play()

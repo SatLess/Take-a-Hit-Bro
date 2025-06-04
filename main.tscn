@@ -10,7 +10,7 @@ script = ExtResource("1_ig7tw")
 [node name="ColorRect" type="ColorRect" parent="Menu"]
 offset_right = 325.0
 offset_bottom = 144.0
-color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+color = Color(0.0126172, 0.0126172, 0.0126172, 1)
 
 [node name="Label2" type="Label" parent="Menu"]
 offset_left = 24.0

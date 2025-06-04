@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bit1s1v15vjne"]
+
+[ext_resource type="Shader" uid="uid://cvla10yrftrv6" path="res://AAAAA.gdshader" id="1_0jved"]
+
+[resource]
+shader = ExtResource("1_0jved")
+shader_parameter/allowed = false

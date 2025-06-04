@@ -1,17 +1,18 @@
-[gd_scene load_steps=47 format=4 uid="uid://deiamoctdlp6g"]
+[gd_scene load_steps=57 format=4 uid="uid://deiamoctdlp6g"]
 
 [ext_resource type="Script" uid="uid://dqeue3uhh51gg" path="res://Autoloads/sfx.gd" id="1_mfdv2"]
 [ext_resource type="Shader" uid="uid://p5rn3dnhnwua" path="res://Autoloads/FUCKYEAH.gdshader" id="2_iotsf"]
+[ext_resource type="AudioStream" uid="uid://bcorp7o8jvyvk" path="res://snd_slendy1.ogg" id="3_215e1"]
 [ext_resource type="Script" uid="uid://dhgiu6s6rdh2h" path="res://music_manager.gd" id="3_lc2xo"]
 [ext_resource type="AudioStream" uid="uid://b1hp3nxj8iwbx" path="res://GaymeFinished.wav" id="4_215e1"]
 [ext_resource type="TileSet" uid="uid://b5s6tpk3r6w7p" path="res://tile.tres" id="5_7sc4i"]
 [ext_resource type="Script" uid="uid://itxwsrrl6f3l" path="res://player.gd" id="6_80cx4"]
 [ext_resource type="Texture2D" uid="uid://c2sk6aw2joiji" path="res://player.png" id="7_e8heu"]
+[ext_resource type="Material" uid="uid://bit1s1v15vjne" path="res://pqp.tres" id="7_iotsf"]
 [ext_resource type="PackedScene" uid="uid://bobodwou7105d" path="res://Prefabs/npc.tscn" id="8_rvswv"]
 [ext_resource type="Texture2D" uid="uid://be4cl8jqsdvx8" path="res://Npcs.png" id="9_boyg6"]
 [ext_resource type="Script" uid="uid://dwbbtn2mjclu5" path="res://Dialogue/DialogueLine.gd" id="10_e36ub"]
 [ext_resource type="Script" uid="uid://75bkswly6yh2" path="res://Dialogue/DialogueResource.gd" id="11_hb5m1"]
-[ext_resource type="Resource" uid="uid://cf2b41vadkdiu" path="res://final.tres" id="12_iotsf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
 shader = ExtResource("2_iotsf")
@@ -44,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [6.2831855, 0.0]
+"values": [6.28319, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_efxa6"]
@@ -60,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 6.2831855]
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycdy4"]
@@ -69,6 +70,8 @@ _data = {
 &"new_animation": SubResource("Animation_ycdy4"),
 &"roatie": SubResource("Animation_efxa6")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lc2xo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0xm2m"]
 atlas = ExtResource("7_e8heu")
@@ -130,9 +133,28 @@ metadata/_custom_type_script = "uid://75bkswly6yh2"
 resource_local_to_scene = true
 size = Vector2(22, 53.125)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mfdv2"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Npcs.png-6e90f1b7710422cb00d13a71f67bb5d8.ctex"
+
+[sub_resource type="Resource" id="Resource_dg77c"]
+script = ExtResource("10_e36ub")
+line = "Do you ever feel like force yourself to be someone youre not? ?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_vivmo"]
+script = ExtResource("10_e36ub")
+line = "How will you know the true you if you dont push urself out there right?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
 [sub_resource type="Resource" id="Resource_215e1"]
 script = ExtResource("10_e36ub")
-line = "I looked like you when I was your age"
+line = "Then why I feel I wasn't made, supposed to be here?"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_7sc4i"]
+script = ExtResource("10_e36ub")
+line = "Like a byproduct of not having enough produce"
 metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
 
 [sub_resource type="Resource" id="Resource_80cx4"]
@@ -142,13 +164,34 @@ metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
 
 [sub_resource type="Resource" id="Resource_e8heu"]
 script = ExtResource("10_e36ub")
+line = "Theres nothing else for you either, just enjoy you high while you can engange in it"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_x5p1p"]
+resource_local_to_scene = true
+script = ExtResource("11_hb5m1")
+line_list = Array[ExtResource("10_e36ub")]([SubResource("Resource_dg77c"), SubResource("Resource_vivmo"), SubResource("Resource_215e1"), SubResource("Resource_7sc4i"), SubResource("Resource_80cx4"), SubResource("Resource_e8heu")])
+metadata/_custom_type_script = "uid://75bkswly6yh2"
+
+[sub_resource type="Resource" id="Resource_qhcbd"]
+script = ExtResource("10_e36ub")
+line = "I looked like you when I was your age"
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_f1jbl"]
+script = ExtResource("10_e36ub")
+line = "..."
+metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
+
+[sub_resource type="Resource" id="Resource_vaj68"]
+script = ExtResource("10_e36ub")
 line = "What? Can I a man not provide dialogue without warranting curiosity?"
 metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
 
 [sub_resource type="Resource" id="Resource_rvswv"]
 resource_local_to_scene = true
 script = ExtResource("11_hb5m1")
-line_list = Array[ExtResource("10_e36ub")]([SubResource("Resource_215e1"), SubResource("Resource_80cx4"), SubResource("Resource_e8heu")])
+line_list = Array[ExtResource("10_e36ub")]([SubResource("Resource_qhcbd"), SubResource("Resource_f1jbl"), SubResource("Resource_vaj68")])
 metadata/_custom_type_script = "uid://75bkswly6yh2"
 
 [sub_resource type="Resource" id="Resource_iotsf"]
@@ -156,7 +199,7 @@ script = ExtResource("10_e36ub")
 line = "Ive seen someone die once"
 metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
 
-[sub_resource type="Resource" id="Resource_7sc4i"]
+[sub_resource type="Resource" id="Resource_i2p71"]
 script = ExtResource("10_e36ub")
 line = "They pressed X key on whe crossroad and theeen"
 metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
@@ -174,7 +217,7 @@ metadata/_custom_type_script = "uid://dwbbtn2mjclu5"
 [sub_resource type="Resource" id="Resource_hb5m1"]
 resource_local_to_scene = true
 script = ExtResource("11_hb5m1")
-line_list = Array[ExtResource("10_e36ub")]([SubResource("Resource_iotsf"), SubResource("Resource_7sc4i"), SubResource("Resource_boyg6"), SubResource("Resource_e36ub")])
+line_list = Array[ExtResource("10_e36ub")]([SubResource("Resource_iotsf"), SubResource("Resource_i2p71"), SubResource("Resource_boyg6"), SubResource("Resource_e36ub")])
 metadata/_custom_type_script = "uid://75bkswly6yh2"
 
 [sub_resource type="Resource" id="Resource_lc2xo"]
@@ -236,18 +279,23 @@ size = Vector2(25, 28)
 
 [node name="SFX" type="Node2D" parent="."]
 script = ExtResource("1_mfdv2")
-pallete = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(1, 0.33333334, 0.33333334, 1), Color(0, 0.6666667, 0.6666667, 1)])
+pallete = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(1, 0.333333, 0.333333, 1), Color(0, 0.666667, 0.666667, 1)])
 
 [node name="CanvasModulate" type="CanvasModulate" parent="SFX"]
 material = SubResource("ShaderMaterial_dg77c")
 
 [node name="Timer" type="Timer" parent="SFX"]
-wait_time = 0.7000000000000001
+wait_time = 0.7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SFX"]
 libraries = {
 &"": SubResource("AnimationLibrary_ycdy4")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_215e1")
+volume_db = -3.65
+pitch_scale = 1.16
 
 [node name="Music Manager" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_lc2xo")
@@ -264,6 +312,7 @@ tile_set = ExtResource("5_7sc4i")
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_lc2xo")
 position = Vector2(45, 17)
 collision_mask = 5
 motion_mode = 1
@@ -276,14 +325,14 @@ ignore_rotation = false
 rotation_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+material = ExtResource("7_iotsf")
 sprite_frames = SubResource("SpriteFrames_h2yge")
-animation = &"walking"
-frame_progress = 0.9004065
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 12)
 shape = SubResource("CapsuleShape2D_ig7tw")
-debug_color = Color(0.96857667, 0.5563933, 0, 0.42000002)
+debug_color = Color(0.968577, 0.556393, 0, 0.42)
 
 [node name="Interactable" type="RayCast2D" parent="Player"]
 target_position = Vector2(30, 0)
@@ -306,9 +355,10 @@ shape = SubResource("RectangleShape2D_dg77c")
 
 [node name="Friend4" parent="." instance=ExtResource("8_rvswv")]
 position = Vector2(1791, 0)
+texture = SubResource("CompressedTexture2D_mfdv2")
 frame = 4
 region_rect = Rect2(133, 35, 20, 29)
-res = ExtResource("12_iotsf")
+res = SubResource("Resource_x5p1p")
 
 [node name="interactable" parent="Friend4" index="0"]
 position = Vector2(0, 20)

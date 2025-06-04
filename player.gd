@@ -19,9 +19,9 @@ func _process(delta: float) -> void:
 		sprite.play("walking")
 	else: sprite.play("idle")
 	if not interactCast.is_colliding(): 
-		modulate = Color.WHITE
+		$AnimatedSprite2D.material = null
 		return
-	modulate = Color.PURPLE
+	$AnimatedSprite2D.material = load("res://pqp.tres")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):

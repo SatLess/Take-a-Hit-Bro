@@ -15,6 +15,9 @@ func _ready() -> void:
 	play()
 
 func _process(delta: float) -> void:
+	if get_playback_position() >= 52.8:
+		play()
+		set_process(false)
 	var play_pos: float = get_playback_position()
 	
 	if play_pos >= 4.87 and flag == 0:
