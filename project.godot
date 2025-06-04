@@ -37,6 +37,12 @@ folder_colors={
 "res://Dialogue/": "green"
 }
 
+[gui]
+
+theme/custom_font="uid://dl6mxc50u85gl"
+theme/default_font_antialiasing=0
+theme/default_font_subpixel_positioning=0
+
 [input]
 
 ui_accept={
